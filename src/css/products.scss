@@ -1,0 +1,121 @@
+@import "utils/variables";
+
+.products {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 767px) {
+    max-width: none;
+  }
+}
+
+.product {
+  position: relative;
+  width: calc(100% - 30px);
+  max-width: calc(100% - 30px);
+  padding: 20px;
+  margin: 0 15px 50px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  border: 1px solid #eee;
+
+  &:hover {
+    .product__image {
+      img {
+        opacity: 0.5;
+      }
+      > button {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    width: calc(50% - 30px);
+    max-width: calc(50% - 30px);
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: calc(33.33% - 30px);
+    max-width: calc(33.33% - 30px);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    position: relative;
+
+    img {
+      transition: opacity 300ms ease;
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      color: $white;
+      background-color: #6ace8d;
+      font-size: 16px;
+      outline: 0;
+      border: 0;
+      padding: 10px 12px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 300ms ease;
+      z-index: 2;
+
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title,
+  &__price,
+  &__rating,
+  &__added {
+    text-align: center;
+  }
+
+  &__title {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    font-weight: bold;
+  }
+
+  &::after {
+    content: attr(data-in-cart);
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: #ef6d51;
+    color: $white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 13px;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 300ms ease;
+  }
+
+  &--in-cart {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.star--empty {
+  fill: #ccc;
+}
