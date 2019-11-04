@@ -1,5 +1,7 @@
 # Product Grid UI Example
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba533dcd-eb61-4d45-9eb1-574cf92329ae/deploy-status)](https://app.netlify.com/sites/product-grid-ui-example/deploys)
+
 This is a Vanilla JS experiment that entails building a user interface for displaying products.
 
 Product data is mocked via `src/components/MockProductData.js`.
